@@ -1,3 +1,3 @@
 #!/bin/bash
 
-/etc/init.d/httpdd stop
+/etc/init.d/httpd stop
