@@ -1,23 +1,15 @@
 version: 0.0
-os: linux
+os: windows
 
 files:
   - source: files/index.html
-    destination: /var/www/html
-
-permissions:
-  - object: /var/www/html
-    pattern: index.html
-    owner: apache
-    group: apache
-    mode: 644
-    type:
-      - file
+    destination: C:\\inetpub\\wwwroot
 
 hooks:
   BeforeInstall:
-    - location: scripts/stop-webserver.sh
-    - location: scripts/delete-old-index.sh
+    - location: scripts/webserver-stop.ps1
+    - location: scripts/delete-old-index.ps1
+      runas: administrator
   AfterInstall:
-    - location: scripts/sleep.sh
-    - location: scripts/start-webserver.sh
+    - location: scripts/sleep.ps1
+    - location: scripts/webserver-start.ps1
