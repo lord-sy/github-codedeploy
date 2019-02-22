@@ -3,7 +3,14 @@ os: windows
 
 files:
   - source: files/index.html
-  destination: C:\\inetpub\\wwwroot
+    destination: C:\\inetpub\\wwwroot
+
+permissions:
+  - object: C:\\inetpub\\wwwroot
+    pattern: index.html
+    mode: 644
+    type:
+      - file
 
 hooks:
   BeforeInstall:
